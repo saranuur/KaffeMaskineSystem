@@ -1,0 +1,50 @@
+﻿@page
+@model KaffeMaskineSystem.Pages.Cleanings.CleaningModel
+@{
+    ViewData["Title"] = "Cleanings";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<h3>Create a new cleaning</h3>
+<form method="post">
+    <div class="form-group">
+        <label for="CoffeeMachineID">Coffee Machine ID</label>
+        <input type="number" class="form-control" id="CoffeeMachineID" name="NewCleaning.CoffeeMachineID" required>
+    </div>
+
+    <div class="form-group">
+        <label for="CleanedBy">Cleaned By</label>
+        <input type="text" class="form-control" id="CleanedBy" name="NewCleaning.CleanedBy" required>
+    </div>
+
+    <div class="form-group">
+        <label for="CleaningDate">Cleaning Date</label>
+        <input type="date" class="form-control" id="CleaningDate" name="NewCleaning.CleaningDate" required>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Add Cleaning</button>
+</form>
+
+<h3>Cleanings List</h3>
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Coffee Machine</th>
+            <th>Cleaned By</th>
+            <th>Cleaning Date</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var cleaning in Model.Cleanings)
+        {
+            <tr>
+                <td>@cleaning.CleaningID</td>
+                <td>@cleaning.CoffeeMachine</td>
+                <td>@cleaning.CleanedBy</td>
+                <td>@cleaning.CleaningDate.ToString("yyyy-MM-dd")</td>
+            </tr>
+        }
+    </tbody>
+</table>

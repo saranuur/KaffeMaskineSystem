@@ -1,0 +1,29 @@
+﻿@page
+@model KaffeMaskineSystem.Pages.RefillModel
+<h2>Refill Historik</h2>
+
+<table>
+    <thead>
+        <tr>
+            <th>Dato</th>
+            <th>Bruger</th>
+            <th>Kaffemaskine</th>
+            <th>Kaffe (g)</th>
+            <th>Sukker (g)</th>
+            <th>Mælkepulver (g)</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var refill in Model.Refills)
+        {
+            <tr>
+                <td>@refill.RefillDate.ToString("dd-MM-yyyy HH:mm")</td>
+                <td>@refill.User.FirstName @refill.User.LastName</td>
+                <td>@refill.CoffeeMachine.Location</td>
+                <td>@refill.CoffeeAmount</td>
+                <td>@refill.SugarAmount</td>
+                <td>@refill.MilkPowderAmount</td>
+            </tr>
+        }
+    </tbody>
+</table>

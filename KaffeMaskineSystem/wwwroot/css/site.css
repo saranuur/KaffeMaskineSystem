@@ -1,0 +1,76 @@
+body {
+    background-color: #f3ebe3; /* Lys creme */
+    font-family: 'Poppins', sans-serif;
+    color: #4b3621; /* Kaffe-brun tekst */
+}
+
+.navbar {
+    background-color: #4b3621; /* Kaffe-brun */
+    color: #fff; /* Hvid tekst */
+}
+
+    .navbar a.nav-link {
+        color: #f3ebe3; /* Lys creme til links */
+    }
+
+        .navbar a.nav-link:hover {
+            color: #d4b483; /* Lys brun til hover */
+        }
+
+footer {
+    background-color: #4b3621; /* Kaffe-brun */
+    color: #f3ebe3; /* Lys creme */
+    padding: 10px;
+}
+
+button, .btn {
+    background-color: #d4b483; /* Lys brun */
+    color: #4b3621; /* Kaffe-brun tekst */
+    border: none;
+    font-weight: bold;
+}
+
+    button:hover, .btn:hover {
+        background-color: #a67b5b; /* Mørkere brun ved hover */
+    }
+
+h1, h2, h3 {
+    color: #4b3621; /* Kaffe-brun tekst */
+}
+
+/* Jumbotron styling */
+.jumbotron {
+    background-color: #4b3621; /* Kaffe-brun */
+    color: #fff; /* Hvid tekst */
+    padding: 50px;
+}
+
+    .jumbotron button {
+        background-color: #d4b483; /* Lys brun */
+        color: #4b3621; /* Kaffe-brun tekst */
+        font-weight: bold;
+    }
+
+        .jumbotron button:hover {
+            background-color: #a67b5b; /* Mørkere brun ved hover */
+        }
+
+/* Table styling if necessary */
+table {
+    background-color: #fff;
+    color: #4b3621; /* Kaffe-brun tekst */
+}
+
+    table th {
+        background-color: #4b3621; /* Kaffe-brun */
+        color: #fff; /* Hvid tekst */
+    }
+
+    table tr:nth-child(even) {
+        background-color: #f3ebe3; /* Lys creme til hver anden række */
+    }
+
+    table tr:hover {
+        background-color: #d4b483; /* Lys brun ved hover */
+        color: #fff; /* Hvid tekst ved hover */
+    }

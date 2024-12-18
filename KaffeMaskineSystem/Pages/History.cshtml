@@ -1,0 +1,29 @@
+﻿@page
+@model KaffeMaskineSystem.Pages.HistoryModel
+
+
+<h2>History Records</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Machine ID</th>
+            <th>User ID</th>
+            <th>Description</th>
+            <th>Date</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var history in Model.Histories)
+        {
+            <tr>
+                <td>@history.HistoryID</td>
+                <td>@history.CoffeeMachineID</td>
+                <td>@history.Description</td>
+                <td>@history.Date</td>
+            </tr>
+        }
+    </tbody>
+</table>
+

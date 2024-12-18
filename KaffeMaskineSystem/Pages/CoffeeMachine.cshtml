@@ -1,0 +1,28 @@
+﻿@page
+@model KaffeMaskineSystem.Pages.CoffeeMachineModel
+
+
+<h2>Alle Kaffemaskiner</h2>
+<table>
+    <thead>
+        <tr>
+            <th>Placering</th>
+            <th>Vandniveau</th>
+            <th>Kaffebønneniveau</th>
+            <th>Mælkepulver</th>
+            <th>Sukker</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var machine in Model.CoffeeMachines)
+        {
+            <tr>
+                <td>@machine.Location</td>
+                <td>@machine.WaterLevel</td>
+                <td>@machine.CoffeeBeansLevel</td>
+                <td>@machine.MilkPowderLevel</td>
+                <td>@machine.SugarLevel</td>
+            </tr>
+        }
+    </tbody>
+</table>

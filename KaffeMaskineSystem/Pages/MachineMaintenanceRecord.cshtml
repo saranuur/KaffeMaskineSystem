@@ -1,0 +1,57 @@
+﻿@page
+@model MachineMaintenanceRecordPageModel
+
+<h2>Machine Maintenance Records</h2>
+
+
+<h3>Add New Maintenance Record</h3>  
+<form method="post">
+    <div class="form-group">
+        <label for="UserName">User Name</label>
+        <input type="text" id="UserName" name="UserName" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label for="EventType">Event Type</label>
+        <input type="text" id="EventType" name="EventType" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label for="EventDate">Event Date</label>
+        <input type="date" id="EventDate" name="EventDate" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label for="CoffeeMachineID">Coffee Machine ID</label>
+        <input type="number" id="CoffeeMachineID" name="CoffeeMachineID" class="form-control" />
+    </div>
+    <button type="submit" class="btn btn-primary">Save</button>
+</form>
+
+<br>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Machine ID</th>
+            <th>User Name</th>
+            <th>Event Type</th>
+            <th>Event Date</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var record in Model.MaintenanceRecords)
+        {
+            <tr>
+                <td>@record.MachineMaintenanceRecordID</td>
+                <td>@record.CoffeeMachineID</td>
+                <td>@record.UserName</td>
+                <td>@record.EventType</td>
+                <td>@record.EventDate</td>
+                <td>
+                    <a href="/MachineMaintenanceRecordPage/Edit/@record.MachineMaintenanceRecordID" class="btn btn-warning">Edit</a>
+                    <a href="/MachineMaintenanceRecordPage/Delete/@record.MachineMaintenanceRecordID" class="btn btn-danger">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

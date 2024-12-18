@@ -1,0 +1,15 @@
+﻿@page
+@model KaffeMaskineSystem.Pages.Cleanings.CleaningDetailsModel
+@{
+    ViewData["Title"] = "Cleaning Details";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<div>
+    <h3>Cleaning Information</h3>
+    <p><strong>Cleaning ID:</strong> @Model.Cleaning.CleaningID</p>
+    <p><strong>Coffee Machine:</strong> @Model.Cleaning.CoffeeMachine.Location</p>
+    <p><strong>Cleaned By:</strong> @Model.Cleaning.CleanedBy</p>
+    <p><strong>Cleaning Date:</strong> @Model.Cleaning.CleaningDate.ToString("yyyy-MM-dd")</p>
+</div>

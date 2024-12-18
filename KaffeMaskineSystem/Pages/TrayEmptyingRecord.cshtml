@@ -1,0 +1,51 @@
+﻿@page
+@model TrayEmptyingRecordPageModel
+
+<h2>Tray Emptying Records</h2>
+
+<!-- Add New Record Form -->
+<h3>Add New Tray Emptying Record</h3>
+<form method="post">
+    <div class="form-group">
+        <label for="UserName">User Name</label>
+        <input type="text" id="UserName" name="UserName" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label for="CoffeeMachineID">Coffee Machine ID</label>
+        <input type="number" id="CoffeeMachineID" name="CoffeeMachineID" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label for="TimeEmptied">Time Emptied</label>
+        <input type="datetime-local" id="TimeEmptied" name="TimeEmptied" class="form-control" />
+    </div>
+    <button type="submit" class="btn btn-primary">Save</button>
+</form>
+
+<br>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Machine ID</th>
+            <th>User Name</th>
+            <th>Time Emptied</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var record in Model.TrayEmptyingRecords)
+        {
+            <tr>
+                <td>@record.TrayEmptyingRecordID</td>
+                <td>@record.CoffeeMachineID</td>
+                <td>@record.UserName</td>
+                <td>@record.TimeEmptied</td>
+                <td>
+                    <a href="/TrayEmptyingRecordPage/Edit/@record.TrayEmptyingRecordID" class="btn btn-warning">Edit</a>
+                    <a href="/TrayEmptyingRecordPage/Delete/@record.TrayEmptyingRecordID" class="btn btn-danger">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

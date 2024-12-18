@@ -1,0 +1,77 @@
+﻿@page
+@model KaffeMaskineSystem.Pages.NotificationPageModel
+
+@{
+    ViewData["Title"] = "Notifikationer";
+}
+
+<h2>Notifikationer</h2>
+
+<!-- Vis en liste af eksisterende notifikationer -->
+@if (Model.Notifications.Any())
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Maskine ID</th>
+                <th>Notifikationstype</th>
+                <th>Notifikationsdato</th>
+                <th>Bruger</th>
+                <th>Handlinger</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var notification in Model.Notifications)
+            {
+                <tr>
+                    <td>@notification.NotificationID</td>
+                    <td>@notification.CoffeeMachineID</td>
+                    <td>@notification.NotificationType</td>
+                    <td>@notification.NotificationDate.ToString("yyyy-MM-dd HH:mm")</td>
+                    <td>@notification.UserID</td>
+                    <td>
+                        <a href="/NotificationPage?handler=Edit&id=@notification.NotificationID" class="btn btn-primary">Rediger</a>
+                        <a href="/NotificationPage?handler=Delete&id=@notification.NotificationID" class="btn btn-danger">Slet</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <div class="alert alert-info">Der er ingen notifikationer at vise.</div>
+}
+
+<!-- Opret en ny notifikation -->
+<a href="/NotificationPage?handler=Create" class="btn btn-success">Opret Ny Notifikation</a>
+
+<!-- Formular for at oprette eller redigere en notifikation -->
+@if (Model.Notification != null)
+{
+    <h3>@((Model.Notification.NotificationID == 0) ? "Opret" : "Rediger") Notifikation</h3>
+    <form method="post">
+        <div class="form-group">
+            <label for="CoffeeMachineID">Maskine ID</label>
+            <input type="number" id="CoffeeMachineID" name="Notification.CoffeeMachineID" class="form-control" value="@Model.Notification.CoffeeMachineID" required />
+        </div>
+
+        <div class="form-group">
+            <label for="NotificationType">Notifikationstype</label>
+            <input type="text" id="NotificationType" name="Notification.NotificationType" class="form-control" value="@Model.Notification.NotificationType" required />
+        </div>
+
+        <div class="form-group">
+            <label for="NotificationDate">Notifikationsdato</label>
+            <input type="datetime-local" id="NotificationDate" name="Notification.NotificationDate" class="form-control" value="@Model.Notification.NotificationDate.ToString("yyyy-MM-ddTHH:mm")" required />
+        </div>
+
+        <div class="form-group">
+            <label for="UserID">Bruger ID</label>
+            <input type="number" id="UserID" name="Notification.UserID" class="form-control" value="@Model.Notification.UserID" required />
+        </div>
+
+        <button type="submit" class="btn btn-primary mt-2">@((Model.Notification.NotificationID == 0) ? "Opret" : "Opdater") Notifikation</button>
+    </form>
+}

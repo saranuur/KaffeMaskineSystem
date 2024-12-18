@@ -1,0 +1,51 @@
+﻿@page
+@model TubeChangePageModel
+
+<h2>Tube Change Records</h2>
+
+<!-- Add New Record Form -->
+<h3>Add New Tube Change Record</h3>
+<form method="post">
+    <div class="form-group">
+        <label for="ChangedBy">Changed By</label>
+        <input type="text" id="ChangedBy" name="ChangedBy" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label for="CoffeeMachineID">Coffee Machine ID</label>
+        <input type="number" id="CoffeeMachineID" name="CoffeeMachineID" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label for="ChangeDate">Change Date</label>
+        <input type="date" id="ChangeDate" name="ChangeDate" class="form-control" />
+    </div>
+    <button type="submit" class="btn btn-primary">Save</button>
+</form>
+
+<br>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Machine ID</th>
+            <th>Changed By</th>
+            <th>Change Date</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var change in Model.TubeChanges)
+        {
+            <tr>
+                <td>@change.TubeChangeID</td>
+                <td>@change.CoffeeMachineID</td>
+                <td>@change.ChangeDate</td>
+                <td>
+                    <a href="/TubeChangePage/Edit/@change.TubeChangeID" class="btn btn-warning">Edit</a>
+                    <a href="/TubeChangePage/Delete/@change.TubeChangeID" class="btn btn-danger">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
