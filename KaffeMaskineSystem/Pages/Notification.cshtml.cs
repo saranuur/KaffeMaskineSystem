@@ -54,35 +54,35 @@ namespace KaffeMaskineSystem.Pages
 
             if (Notification == null)
             {
-                return NotFound(); // Hvis ikke notifikationen findes, vis en fejl
+                return NotFound(); 
             }
 
-            return Page(); // Vis formularen for at redigere
+            return Page(); 
         }
 
-        // Håndter redigering af en notifikation (POST)
+        
         public async Task<IActionResult> OnPostEditAsync()
         {
             if (!ModelState.IsValid)
             {
-                return Page(); // Hvis formularen ikke er gyldig, vis formularen igen
+                return Page(); 
             }
 
             await _notificationService.UpdateNotificationAsync(Notification);
-            return RedirectToPage("/NotificationPage"); // Omdiriger til oversigten
+            return RedirectToPage("/NotificationPage"); 
         }
 
-        // Slet en eksisterende notifikation (GET)
+       
         public async Task<IActionResult> OnGetDeleteAsync(int id)
         {
             Notification = await _notificationService.GetNotificationByIdAsync(id);
 
             if (Notification == null)
             {
-                return NotFound(); // Hvis ikke notifikationen findes, vis en fejl
+                return NotFound(); 
             }
 
-            return Page(); // Vis siden for at bekræfte sletning
+            return Page(); 
         }
 
         // Håndter sletning af en notifikation (POST)

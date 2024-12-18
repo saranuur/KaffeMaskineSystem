@@ -36,10 +36,10 @@ namespace KaffeMaskineSystem.Pages.Cleanings
                 await _cleaningService.AddCleaningAsync(NewCleaning.CoffeeMachineID, NewCleaning.CleanedBy, NewCleaning.CleaningDate);
                 
 
-                // Tilføj rengøringen til databasen
+                // Her tilgøjer vi  rengøringen til databasen
                 var createdCleaning = await _cleaningService.AddCleaningAsync(NewCleaning.CoffeeMachineID, NewCleaning.CleanedBy, NewCleaning.CleaningDate);
 
-                // Omdiriger til CleaningDetails-siden og send cleaningId som en parameter
+
                 return RedirectToPage("/Cleanings/CleaningDetails", new { cleaningId = createdCleaning.CleaningID });
             }
 
