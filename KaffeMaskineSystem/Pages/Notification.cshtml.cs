@@ -22,32 +22,32 @@ namespace KaffeMaskineSystem.Pages
             _notificationService = notificationService;
         }
 
-        // Hent alle notifikationer og vis dem på siden
+        
         public async Task OnGetAsync()
         {
             Notifications = await _notificationService.GetAllNotificationsAsync();
         }
 
-        // Opret en ny notifikation (GET)
+        
         public IActionResult OnGetCreate()
         {
-            Notification = new Notification(); // Opret en tom notifikation til formularen
-            return Page(); // Vis formularen
+            Notification = new Notification(); 
+            return Page(); 
         }
 
-        // Håndter oprettelse af en ny notifikation (POST)
+        
         public async Task<IActionResult> OnPostCreateAsync()
         {
             if (!ModelState.IsValid)
             {
-                return Page(); // Hvis formularen ikke er gyldig, vis formularen igen
+                return Page(); 
             }
 
             await _notificationService.AddNotificationAsync(Notification);
-            return RedirectToPage("/NotificationPage"); // Omdiriger til oversigten over notifikationer
+            return RedirectToPage("/NotificationPage"); 
         }
 
-        // Rediger en eksisterende notifikation (GET)
+        
         public async Task<IActionResult> OnGetEditAsync(int id)
         {
             Notification = await _notificationService.GetNotificationByIdAsync(id);
